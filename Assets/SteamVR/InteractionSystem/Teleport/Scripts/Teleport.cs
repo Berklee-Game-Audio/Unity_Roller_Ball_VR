@@ -650,7 +650,8 @@ namespace Valve.VR.InteractionSystem
 			{
 				if ( teleportMarker != null && teleportMarker.markerActive && teleportMarker.gameObject != null )
 				{
-					teleportMarker.gameObject.SetActive( false );
+					// [Bug] this line disables ground object.
+					// teleportMarker.gameObject.SetActive( false );
 				}
 			}
 
@@ -715,7 +716,7 @@ namespace Valve.VR.InteractionSystem
 			{
 				if ( ShouldOverrideHoverLock() )
 				{
-					//Restore the original hovering interactable on the hand
+					// Restore the original hovering interactable on the hand
 					if ( originalHoverLockState == true )
 					{
 						oldPointerHand.HoverLock( originalHoveringInteractable );
